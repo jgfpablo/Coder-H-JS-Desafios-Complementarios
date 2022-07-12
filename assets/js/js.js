@@ -368,8 +368,4 @@ if (agregar == "No" || agregar == "no" || agregar == "NO") {
     }
 
     console.log("El total de su compra es : " + precioTotal);
-} else {
-    console.log(
-        "el programador no tiene idea de como llegaste a esta opcion reportalo para que asi este pueda recapacitar si seguir programando o dejarlo para siempre"
-    );
 }
