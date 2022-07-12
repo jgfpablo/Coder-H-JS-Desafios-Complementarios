@@ -1,16 +1,21 @@
 let seleccionesDeUsuario = [];
-let numero = 0;
 let agregar = "Si";
 let precioTotal = 0;
 
-function menu(nombre, precio) {
-    this.nombre = nombre;
-    this.precio = precio;
+class Productos {
+    constructor(nombre, precio, cantidad) {
+        (this.nombre = nombre),
+            (this.precioUnitario = precio),
+            (this.cantidad = cantidad);
+    }
+
+    agregar(cantidad) {
+        this.cantidad += cantidad;
+    }
 }
 
-//FUNCION  SeleccionProducto ---------------------------------------------------------------------------------------------
-const seleccionProducto = (tiposMenu) => {
-    if (tiposMenu == 1) {
+const seleccionProducto = (tiposProductos) => {
+    if (tiposProductos == 1) {
         let Seleccion = prompt(
             `seleccione una Bebida Caliente
                 \n 1-Macchiato Bombóm
@@ -22,25 +27,85 @@ const seleccionProducto = (tiposMenu) => {
 
         switch (Seleccion) {
             case "1":
-                seleccionesDeUsuario[numero] = new menu(
-                    "Macchiato Bombóm",
-                    255
+                cantidad = parseInt(
+                    prompt(
+                        "ingrese la cantidad de productos del mismo tipo que desea"
+                    )
                 );
+
+                producto = seleccionesDeUsuario.filter(
+                    (item) => item.nombre == "Macchiato Bombóm"
+                );
+
+                if (producto.length != 0) {
+                    producto[0].agregar(cantidad);
+                } else {
+                    seleccionesDeUsuario.push(
+                        new Productos("Macchiato Bombóm", 255, cantidad)
+                    );
+                }
+
                 break;
+
             case "2":
-                seleccionesDeUsuario[numero] = new menu("Capuccino Moka", 255);
+                cantidad = parseInt(
+                    prompt(
+                        "ingrese la cantidad de productos del mismo tipo que desea"
+                    )
+                );
+
+                producto = seleccionesDeUsuario.filter(
+                    (item) => item.nombre == "Capuccino Moka"
+                );
+
+                if (producto.length != 0) {
+                    producto[0].agregar(cantidad);
+                } else {
+                    seleccionesDeUsuario.push(
+                        new Productos("Capuccino Moka", 255, cantidad)
+                    );
+                }
                 break;
             case "3":
-                seleccionesDeUsuario[numero] = new menu("Cappuccino", 255);
+                cantidad = parseInt(
+                    prompt(
+                        "ingrese la cantidad de productos del mismo tipo que desea"
+                    )
+                );
+
+                producto = seleccionesDeUsuario.filter(
+                    (item) => item.nombre == "Cappuccino"
+                );
+
+                if (producto.length != 0) {
+                    producto[0].agregar(cantidad);
+                } else {
+                    seleccionesDeUsuario.push(
+                        new Productos("Cappuccino", 255, cantidad)
+                    );
+                }
                 break;
             case "4":
-                seleccionesDeUsuario[numero] = new menu(
-                    "Cappuccino Tentación",
-                    255
+                cantidad = parseInt(
+                    prompt(
+                        "ingrese la cantidad de productos del mismo tipo que desea"
+                    )
                 );
+
+                producto = seleccionesDeUsuario.filter(
+                    (item) => item.nombre == "Cappuccino Tentación"
+                );
+
+                if (producto.length != 0) {
+                    producto[0].agregar(cantidad);
+                } else {
+                    seleccionesDeUsuario.push(
+                        new Productos("Cappuccino Tentación", 255, cantidad)
+                    );
+                }
                 break;
         }
-    } else if (tiposMenu == 2) {
+    } else if (tiposProductos == 2) {
         let Seleccion = prompt(
             `seleccione una Bebida Fria
                 \n 1-Té de Frambuesa
@@ -51,16 +116,64 @@ const seleccionProducto = (tiposMenu) => {
 
         switch (Seleccion) {
             case "1":
-                seleccionesDeUsuario[numero] = new menu("Té de Frambuesa", 255);
+                cantidad = parseInt(
+                    prompt(
+                        "ingrese la cantidad de productos del mismo tipo que desea"
+                    )
+                );
+
+                producto = seleccionesDeUsuario.filter(
+                    (item) => item.nombre == "Té de Frambuesa"
+                );
+
+                if (producto.length != 0) {
+                    producto[0].agregar(cantidad);
+                } else {
+                    seleccionesDeUsuario.push(
+                        new Productos("Té de Frambuesa", 255, cantidad)
+                    );
+                }
                 break;
             case "2":
-                seleccionesDeUsuario[numero] = new menu("Té de Limon", 255);
+                cantidad = parseInt(
+                    prompt(
+                        "ingrese la cantidad de productos del mismo tipo que desea"
+                    )
+                );
+
+                producto = seleccionesDeUsuario.filter(
+                    (item) => item.nombre == "Té de Limon"
+                );
+
+                if (producto.length != 0) {
+                    producto[0].agregar(cantidad);
+                } else {
+                    seleccionesDeUsuario.push(
+                        new Productos("Té de Limon", 255, cantidad)
+                    );
+                }
                 break;
             case "3":
-                seleccionesDeUsuario[numero] = new menu("Té de Naranja", 255);
+                cantidad = parseInt(
+                    prompt(
+                        "ingrese la cantidad de productos del mismo tipo que desea"
+                    )
+                );
+
+                producto = seleccionesDeUsuario.filter(
+                    (item) => item.nombre == "Té de Naranja"
+                );
+
+                if (producto.length != 0) {
+                    producto[0].agregar(cantidad);
+                } else {
+                    seleccionesDeUsuario.push(
+                        new Productos("Té de Naranja", 255, cantidad)
+                    );
+                }
                 break;
         }
-    } else if (tiposMenu == 3) {
+    } else if (tiposProductos == 3) {
         let Seleccion = prompt(
             `seleccione un Salados
                 \n 1-Tostado 4 Quesos
@@ -71,22 +184,64 @@ const seleccionProducto = (tiposMenu) => {
 
         switch (Seleccion) {
             case "1":
-                seleccionesDeUsuario[numero] = new menu(
-                    "Tostado 4 Quesos",
-                    255
+                cantidad = parseInt(
+                    prompt(
+                        "ingrese la cantidad de productos del mismo tipo que desea"
+                    )
                 );
+
+                producto = seleccionesDeUsuario.filter(
+                    (item) => item.nombre == "Tostado 4 Quesos"
+                );
+
+                if (producto.length != 0) {
+                    producto[0].agregar(cantidad);
+                } else {
+                    seleccionesDeUsuario.push(
+                        new Productos("Tostado 4 Quesos", 255, cantidad)
+                    );
+                }
                 break;
             case "2":
-                seleccionesDeUsuario[numero] = new menu("Tostado Mixto", 255);
+                cantidad = parseInt(
+                    prompt(
+                        "ingrese la cantidad de productos del mismo tipo que desea"
+                    )
+                );
+
+                producto = seleccionesDeUsuario.filter(
+                    (item) => item.nombre == "Tostado Mixto"
+                );
+
+                if (producto.length != 0) {
+                    producto[0].agregar(cantidad);
+                } else {
+                    seleccionesDeUsuario.push(
+                        new Productos("Tostado Mixto", 255, cantidad)
+                    );
+                }
                 break;
             case "3":
-                seleccionesDeUsuario[numero] = new menu(
-                    "Tostado Napolitano",
-                    255
+                cantidad = parseInt(
+                    prompt(
+                        "ingrese la cantidad de productos del mismo tipo que desea"
+                    )
                 );
+
+                producto = seleccionesDeUsuario.filter(
+                    (item) => item.nombre == "Tostado Napolitano"
+                );
+
+                if (producto.length != 0) {
+                    producto[0].agregar(cantidad);
+                } else {
+                    seleccionesDeUsuario.push(
+                        new Productos("Tostado Napolitano", 255, cantidad)
+                    );
+                }
                 break;
         }
-    } else if (tiposMenu == 4) {
+    } else if (tiposProductos == 4) {
         let Seleccion = prompt(
             `seleccione un Postres
                 \n 1-Flan
@@ -96,20 +251,51 @@ const seleccionProducto = (tiposMenu) => {
 
         switch (Seleccion) {
             case "1":
-                seleccionesDeUsuario[numero] = new menu("Flan", 255);
+                cantidad = parseInt(
+                    prompt(
+                        "ingrese la cantidad de productos del mismo tipo que desea"
+                    )
+                );
+
+                producto = seleccionesDeUsuario.filter(
+                    (item) => item.nombre == "Flan"
+                );
+
+                if (producto.length != 0) {
+                    producto[0].agregar(cantidad);
+                } else {
+                    seleccionesDeUsuario.push(
+                        new Productos("Flan", 255, cantidad)
+                    );
+                }
                 break;
             case "2":
-                seleccionesDeUsuario[numero] = new menu("Pay de Queso", 255);
+                cantidad = parseInt(
+                    prompt(
+                        "ingrese la cantidad de productos del mismo tipo que desea"
+                    )
+                );
+
+                producto = seleccionesDeUsuario.filter(
+                    (item) => item.nombre == "Pay de Queso"
+                );
+
+                if (producto.length != 0) {
+                    producto[0].agregar(cantidad);
+                } else {
+                    seleccionesDeUsuario.push(
+                        new Productos("Pay de Queso", 255, cantidad)
+                    );
+                }
                 break;
         }
+    } else if (tiposProductos == 5) {
+        EliminarProducto();
     } else {
         alert("Porfavor Ingrese un numero de menu valido");
-        numero--;
     }
 };
-// FIN FUNCION  SeleccionProducto ---------------------------------------------------------------------------------------------
 
-//FUNCION repetirSeleccion -------------------------------------------------------------------------------------------------
 const repetirSeleccion = () => {
     agregar = "";
     console.table(seleccionesDeUsuario);
@@ -125,12 +311,39 @@ const repetirSeleccion = () => {
         agregar != "no" &&
         agregar != "NO"
     );
-
-    if (agregar == "si" || agregar == "Si" || agregar == "SI") {
-        numero++;
-    }
 };
-//FIN FUNCION repetirSeleccion -------------------------------------------------------------------------------------------------
+
+const EliminarProducto = () => {
+    let msg = "elige el producto a eliminar o reducir su cantidad";
+    let retirar = -1;
+
+    num = 1;
+    for (let index = 0; index < seleccionesDeUsuario.length; index++) {
+        msg +=
+            "\n" +
+            num +
+            "- " +
+            seleccionesDeUsuario[index].nombre +
+            " actualmente su menu posee  " +
+            seleccionesDeUsuario[index].cantidad +
+            " unidades de este producto.";
+        num++;
+    }
+    let numeroEliminar = prompt(msg);
+
+    while (
+        retirar < 0 ||
+        retirar > seleccionesDeUsuario[numeroEliminar - 1].cantidad
+    ) {
+        retirar = prompt(
+            " Ingrese la cantidad que desea retirar del producto: " +
+                seleccionesDeUsuario[numeroEliminar - 1].nombre +
+                " su cantidad actual es de: " +
+                seleccionesDeUsuario[numeroEliminar - 1].cantidad
+        );
+    }
+    seleccionesDeUsuario[numeroEliminar - 1].cantidad -= retirar;
+};
 
 while (agregar == "Si" || agregar == "si" || agregar == "SI") {
     let tiposMenu = prompt(
@@ -139,6 +352,7 @@ while (agregar == "Si" || agregar == "si" || agregar == "SI") {
         \n 2-Bebidas Frias
         \n 3-Salados
         \n 4-Postres
+        \n 5-Eliminar Producto del menu
         \n Ingrese un numero para continuar`
     );
     seleccionProducto(tiposMenu);
@@ -149,9 +363,10 @@ if (agregar == "No" || agregar == "no" || agregar == "NO") {
     console.log("Su Pedido es :");
     console.table(seleccionesDeUsuario);
 
-    seleccionesDeUsuario.forEach((seleccionDeUsuario) => {
-        precioTotal += seleccionDeUsuario.precio;
-    });
+    for (const iterator of seleccionesDeUsuario) {
+        precioTotal += iterator.precioUnitario * iterator.cantidad;
+    }
+
     console.log("El total de su compra es : " + precioTotal);
 } else {
     console.log(
