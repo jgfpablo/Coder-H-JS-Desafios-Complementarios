@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name=»description» content=»Coffee nos comprometemos a brindar a nuestros clientes la mayor calidad y
+        satisfacción en nuestros productos »>
+    <title>Coffee | Menu</title>
+    <meta name="keywords" content="Cafe, Cafeteria, Postres, Bebidas, Pasteles, Desayunos, Merienda, Coffee,Té,">
+    <meta name="author" content="Pablo Javier Frank Gonzalez">
+    <link rel="icon" type="image/jpg" href="../assets/img/logo-menu.png" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        
+</head>
+
+
+<body class="body">
+
+
+    <header class="header">
+
+        <nav class="navbar navbar-expand-lg navbar-dark fs-3">
+            <div class="container-fluid">
+                <a class="navbar-brand logo" href="../index.html"><img src="../assets/img/logo-menu.png" width="50px"
+                        alt="Logo" srcset=""> Coffee</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse md-d-flex justify-content-md-around" id="navbarNav">
+                    <ul class="navbar-nav  ">
+                        <li class="nav-item mx-md-1 mx-lg-2 mx-xl-4  ">
+                            <a class="nav-link " aria-current="page" href="../index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item mx-md-1 mx-lg- mx-xl-4">
+                            <a class="nav-link" href="./nosotros.html">Nosotros</a>
+                        </li>
+                        <li class="nav-item mx-md-1 mx-lg- mx-xl-4">
+                            <a class="nav-link active" href="./menu.html">Menu</a>
+                        </li>
+                        <li class="nav-item mx-md-1 mx-lg- mx-xl-4">
+                            <a href="./contacto.html" class="nav-link">Contacto</a>
+                        </li>
+                        <li class="nav-item mx-md-1 mx-lg- mx-xl-4">
+                            <a href="./resena.html" class="nav-link">Reseñas</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+
+    <main class="main-index">
+
+        <section class="hero">
+
+            <img src="../assets/img/home-img.jpeg" width="100%" alt="Hero-image">
+
+            <div>
+                <h1 class="title-hero">Menu</h1>
+                <span>
+                    <p class="text-hero">Nuestro Menu</p>
+                </span>
+            </div>
+
+        </section>
+
+        <section>
+
+            <h2 class="d-flex justify-content-center mt-4 color sub-menu">Bebidas Calientes</h2>
+
+            <div class="container-fluid d-flex flex-wrap justify-content-center">
+                
+
+                <article class="menu col-12 col-md-4 col-lg-3 bg bg-img m-4 ">
+
+                    <div >
+    
+                        <div class="d-flex justify-content-center">
+                            <img src="../assets/img/productos/bebidas_calientes/Macchiato-Bombóm.png" width="100%" height="100%" class="img-menu"
+                                alt="imagen cafe moka" srcset="">
+                        </div>
+    
+                        <div class="d-flex flex-column align-items-center">
+                            <p class="menu-text-title ">Macchiato Bombóm</p>
+                            <div class="agregar-quitar-menu"><button    onclick="restar('Macchiato-Bombom',240)" class="btn-agregar-quitar btn-quitar">-</button><input disabled=»disabled» id="Macchiato-Bombom" value="0" class="input-number" type="number"><button onclick="sumar('Macchiato-Bombom',240)" class="btn-agregar-quitar">+</button></div>
+                            <p class="menu-text-title">$240</p>
+                        </div>
+    
+                    </div>
+    
+                </article>
+
+                <article class="menu col-12 col-md-4 col-lg-3 bg bg-img m-4 ">
+
+                    <div >
+    
+                        <div class="d-flex justify-content-center">
+                            <img src="../assets/img/productos/bebidas_calientes/Cappuccino-Moka.png" class="img-menu"
+                                alt="imagen cafe moka" srcset="">
+                        </div>
+    
+                        <div class="d-flex flex-column align-items-center">
+                            <p class="menu-text-title ">Capuccino Moka</p>
+                            <div class="agregar-quitar-menu"><button    onclick="restar('Capuccino-Moka',200)" class="btn-agregar-quitar btn-quitar">-</button><input disabled=»disabled» id="Capuccino-Moka" value="0" class="input-number" type="number"><button onclick="sumar('Capuccino-Moka',200)" class="btn-agregar-quitar">+</button></div>
+                            <p class="menu-text-title">$200</p>
+                        </div>
+    
+                    </div>
+    
+                </article>
+
+
+                <article class="menu col-12 col-md-4 col-lg-3 bg bg-img m-4 ">
+
+                    <div >
+    
+                        <div class="d-flex justify-content-center">
+                            <img src="../assets/img/productos/bebidas_calientes/Cappuccino.png" class="img-menu"
+                                alt="imagen Cappuccino" srcset="">
+                        </div>
+    
+                        <div class="d-flex flex-column align-items-center">
+                            <p class="menu-text-title ">Cappuccino</p>
+                            <div class="agregar-quitar-menu"><button onclick="restar('Cappuccino-',220)" class="btn-agregar-quitar btn-quitar">-</button><input disabled=»disabled» id="Cappuccino-" value="0" class="input-number" type="number"><button onclick="sumar('Cappuccino-',220)" class="btn-agregar-quitar">+</button></div>
+                            <p class="menu-text-title">$220</p>
+                        </div>
+    
+                    </div>
+    
+                </article>
+
+                <article class="menu col-12 col-md-4 col-lg-3 bg bg-img m-4 ">
+
+                    <div >
+    
+                        <div class="d-flex justify-content-center">
+                            <img src="../assets/img/productos/bebidas_calientes/Capuccino-Tentación.png" class="img-menu"
+                                alt="imagen Cappuccino Tentación" srcset="">
+                        </div>
+    
+                        <div class="d-flex flex-column align-items-center">
+                            <p class="menu-text-title ">Cappuccino Tentación</p>
+                            <div class="agregar-quitar-menu"><button    onclick="restar('Cappuccino-Tentación',250)" class="btn-agregar-quitar btn-quitar">-</button><input disabled=»disabled» id="Cappuccino-Tentación" value="0" class="input-number" type="number"><button onclick="sumar('Cappuccino-Tentación',250)" class="btn-agregar-quitar">+</button></div>
+
+                            <p class="menu-text-title">$250</p>
+                        </div>
+    
+                    </div>
+    
+                </article>
+
+                <article class="menu col-12 col-md-4 col-lg-3 bg bg-img m-4 ">
+
+                    <div >
+    
+                        <div class="d-flex justify-content-center">
+                            <img src="../assets/img/productos/bebidas_calientes/Cappuccino-Bombóm.png" class="img-menu"
+                                alt="imagen Cappuccino Bombóm" srcset="">
+                        </div>
+    
+                        <div class="d-flex flex-column align-items-center">
+                            <p class="menu-text-title ">Cappuccino Bombóm</p>
+                            <div class="agregar-quitar-menu"><button    onclick="restar('Cappuccino-Bombóm',230)" class="btn-agregar-quitar btn-quitar">-</button><input disabled=»disabled» id="Cappuccino-Bombóm" value="0" class="input-number" type="number"><button onclick="sumar('Cappuccino-Bombóm' ,230)" class="btn-agregar-quitar">+</button></div>
+
+                            <p class="menu-text-title">$230</p>
+                        </div>
+    
+                    </div>
+    
+                </article>
+
+                <article class="menu col-12 col-md-4 col-lg-3 bg bg-img m-4 ">
+
+                    <div >
+    
+                        <div class="d-flex justify-content-center">
+                            <img src="../assets/img/productos/bebidas_calientes/Macchiato.png" class="img-menu"
+                                alt="imagen Macchiato" srcset="">
+                        </div>
+    
+                        <div class="d-flex flex-column align-items-center">
+                            <p class="menu-text-title ">Macchiato</p>
+                            <div class="agregar-quitar-menu"><button    onclick="restar('Macchiato-',220)" class="btn-agregar-quitar btn-quitar">-</button><input disabled=»disabled» id="Macchiato-" value="0" class="input-number" type="number"><button onclick="sumar('Macchiato-',220)" class="btn-agregar-quitar">+</button></div>
+
+                            <p class="menu-text-title">$220</p>
+                        </div>
+    
+                    </div>
+    
+                </article>
+
+
+                
+            </div>
+
+        </section>
+
+<hr>
+
+        <section>
+
+            <h2 class="d-flex justify-content-center mt-4 color sub-menu">Bebidas Frias</h2>
+
+            <div class="container-fluid d-flex flex-wrap justify-content-center">
+
+                <article class="menu col-12 col-md-4 col-lg-3 bg bg-img m-4 ">
+
+                    <div >
+    
+                        <div class="d-flex justify-content-center">
+                            <img src="../assets/img/productos/bebidas_frias/te-frambuesa.png" class="img-menu"
+                                alt="imagen Té de Frambuesa" srcset="">
+                        </div>
+    
+                        <div class="d-flex flex-column align-items-center">
+                            <p class="menu-text-title ">Té de Frambuesa</p>
+                            <div class="agregar-quitar-menu"><button    onclick="restar('Té-de-Frambuesa',150)" class="btn-agregar-quitar btn-quitar">-</button><input disabled=»disabled» id="Té-de-Frambuesa" value="0" class="input-number" type="number"><button onclick="sumar('Té-de-Frambuesa',150)" class="btn-agregar-quitar">+</button></div>
+
+                            <p class="menu-text-title">$150</p>
+                        </div>
+    
+                    </div>
+    
+                </article>
+
+                <article class="menu col-12 col-md-4 col-lg-3 bg bg-img m-4 ">
+
+                    <div >
+    
+                        <div class="d-flex justify-content-center">
+                            <img src="../assets/img/productos/bebidas_frias/te-limon.png" class="img-menu"
+                                alt="imagen Té de Limon" srcset="">
+                        </div>
+    
+                        <div class="d-flex flex-column align-items-center">
+                            <p class="menu-text-title ">Té de Limon</p>
+                            <div class="agregar-quitar-menu"><button    onclick="restar('Té-de-Limon',120)" class="btn-agregar-quitar btn-quitar">-</button><input disabled=»disabled» id="Té-de-Limon" value="0" class="input-number" type="number"><button onclick="sumar('Té-de-Limon',120)" class="btn-agregar-quitar">+</button></div>
+
+                            <p class="menu-text-title">$120</p>
+                        </div>
+    
+                    </div>
+    
+                </article>
+
+
+                <article class="menu col-12 col-md-4 col-lg-3 bg bg-img m-4 ">
+
+                    <div >
+    
+                        <div class="d-flex justify-content-center">
+                            <img src="../assets/img/productos/bebidas_frias/te-naranja.png" class="img-menu"
+                                alt="imagen Té de Naranja" srcset="">
+                        </div>
+    
+                        <div class="d-flex flex-column align-items-center">
+                            <p class="menu-text-title ">Té de Naranja</p>
+                            <div class="agregar-quitar-menu"><button    onclick="restar('Té-de-Naranja',140)" class="btn-agregar-quitar btn-quitar">-</button><input disabled=»disabled» id="Té-de-Naranja" value="0" class="input-number" type="number"><button onclick="sumar('Té-de-Naranja',140)" class="btn-agregar-quitar">+</button></div>
+
+                            <p class="menu-text-title">$140</p>
+                        </div>
+    
+                    </div>
+    
+                </article>
+
+            </div>
+
+        </section>
+
+<hr>
+
+        <section>
+
+            <h2 class="d-flex justify-content-center mt-4 color sub-menu">Salados</h2>
+
+            <div class="container-fluid d-flex flex-wrap justify-content-center">
+                
+
+                <article class="menu col-12 col-md-4 col-lg-3 bg bg-img m-4 ">
+
+                    <div >
+    
+                        <div class="d-flex justify-content-center">
+                            <img src="../assets/img/productos/salados/Tostado-4-quesos.png" class="img-menu"
+                                alt="imagen cafe moka" srcset="">
+                        </div>
+    
+                        <div class="d-flex flex-column align-items-center">
+                            <p class="menu-text-title ">Tostado 4 Quesos</p>
+                            <div class="agregar-quitar-menu"><button    onclick="restar('Tostado-4-Quesos',200)" class="btn-agregar-quitar btn-quitar">-</button><input disabled=»disabled» id="Tostado-4-Quesos" value="0" class="input-number" type="number"><button onclick="sumar('Tostado-4-Quesos',200)" class="btn-agregar-quitar">+</button></div>
+
+                            <p class="menu-text-title">$200</p>
+                        </div>
+    
+                    </div>
+    
+                </article>
+
+                <article class="menu col-12 col-md-4 col-lg-3 bg bg-img m-4 ">
+
+                    <div >
+    
+                        <div class="d-flex justify-content-center">
+                            <img src="../assets/img/productos/salados/Tostado-mixto.png" class="img-menu"
+                                alt="imagen Tostado Mixto" srcset="">
+                        </div>
+    
+                        <div class="d-flex flex-column align-items-center">
+                            <p class="menu-text-title ">Tostado Mixto</p>
+                            <div class="agregar-quitar-menu"><button    onclick="restar('Tostado-Mixto',250)" class="btn-agregar-quitar btn-quitar">-</button><input disabled=»disabled» id="Tostado-Mixto" value="0" class="input-number" type="number"><button onclick="sumar('Tostado-Mixto',250)" class="btn-agregar-quitar">+</button></div>
+
+                            <p class="menu-text-title">$250</p>
+                        </div>
+    
+                    </div>
+    
+                </article>
+
+
+                <article class="menu col-12 col-md-4 col-lg-3 bg bg-img m-4 ">
+
+                    <div >
+    
+                        <div class="d-flex justify-content-center">
+                            <img src="../assets/img/productos/salados/Tostado-napolitano.png" class="img-menu"
+                                alt="imagen Tostado Napolitano" srcset="">
+                        </div>
+    
+                        <div class="d-flex flex-column align-items-center">
+                            <p class="menu-text-title ">Tostado Napolitano</p>
+                            <div class="agregar-quitar-menu"><button    onclick="restar('Tostado-Napolitano',230)" class="btn-agregar-quitar btn-quitar">-</button><input disabled=»disabled» id="Tostado-Napolitano" value="0" class="input-number" type="number"><button onclick="sumar('Tostado-Napolitano',230)" class="btn-agregar-quitar">+</button></div>
+
+                            <p class="menu-text-title">$230</p>
+                        </div>
+    
+                    </div>
+    
+                </article>
+
+            </div>
+
+        </section>
+
+<hr>
+
+        <section>
+
+            <h2 class="d-flex justify-content-center mt-4 color sub-menu">Postres</h2>
+
+            <div class="container-fluid d-flex flex-wrap justify-content-center">
+
+                <article class="menu col-12 col-md-4 col-lg-3 bg bg-img m-4 ">
+
+                    <div >
+    
+                        <div class="d-flex justify-content-center">
+                            <img src="../assets/img/productos/dulces/flan_casero.png" class="img-menu"
+                                alt="imagen Flan" srcset="">
+                        </div>
+    
+                        <div class="d-flex flex-column align-items-center">
+                            <p class="menu-text-title ">Flan</p>
+                            <div class="agregar-quitar-menu"><button    onclick="restar('Flan-',170)" class="btn-agregar-quitar btn-quitar">-</button><input disabled=»disabled» id="Flan-" value="0" class="input-number" type="number"><button onclick="sumar('Flan-',170)" class="btn-agregar-quitar">+</button></div>
+
+                            <p class="menu-text-title">$170</p>
+                        </div>
+    
+                    </div>
+    
+                </article>
+
+
+                <article class="menu col-12 col-md-4 col-lg-3 bg bg-img m-4 ">
+
+                    <div >
+    
+                        <div class="d-flex justify-content-center">
+                            <img src="../assets/img/productos/dulces/pay_de_queso.png" class="img-menu"
+                                alt="imagen Pay de Queso" srcset="">
+                        </div>
+    
+                        <div class="d-flex flex-column align-items-center">
+                            <p class="menu-text-title ">Pay de Queso</p>
+                            <div class="agregar-quitar-menu"><button    onclick="restar('Pay-de-Queso',250)" class="btn-agregar-quitar btn-quitar">-</button><input disabled=»disabled» id="Pay-de-Queso" value="0" class="input-number" type="number"><button onclick="sumar('Pay-de-Queso',250)" class="btn-agregar-quitar">+</button></div>
+
+                            <p class="menu-text-title">$250</p>
+                        </div>
+    
+                    </div>
+    
+                </article>
+
+            </div>
+
+        </section>
+
+        <button type="button" onclick="total()" class="btn carrito-btn fa-solid fa-basket-shopping " data-bs-toggle="modal" data-bs-target="#exampleModal">
+        </button>
+
+
+
+
+        <div class="modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog ">
+                <div class="modal-content fondo-modal  ">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-color-modal-2" id="exampleModalLabel">Carrito Compras</h5>
+                    </div>
+                <div class="modal-body text-color-modal-1">
+                    <table class="table table-dark text-color-modal-1">
+                        <thead>
+                            <tr>
+                                <th>nombre</th>
+                                <th>cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                                        <span class="text-color-modal-1">Total de la compra $<span class="text-color-modal-1" id="total"></span></span>
+
+                    <button type="button" class="btn btn-cerrar" data-bs-dismiss="modal">Volver</button>
+                    <button type="button" class="btn btn-ok">Realizar Pedido</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+
+
+    <footer class="footer container-fluid bg  ">
+
+
+        <div class="redes d-flex justify-content-center flex-md-row">
+            <ul class=" d-md-flex">
+                <li><a href=""><i class="fa-brands fa-facebook-f"></i></a></li>
+                <li><a href=""><i class="fa-brands fa-twitter"></i></li>
+                <li><a href=""><i class="fa-brands fa-instagram"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="menu d-flex justify-content-center flex-md-row  ">
+            <ul class=" d-md-flex">
+                <li><a href="../index.html">Inicio</a></li>
+                <li><a href="./nosotros.html">Nosotros</a></li>
+                <li><a href="./menu.html">Menu</a></li>
+                <li><a href="./contacto.html">Contacto</a></li>
+                <li><a href="./resena.html">Reseñas</a></li>
+            </ul>
+        </div>
+
+        <div class="creditos">
+            Creado por <p>Pablo Javier Frank Gonzalez</p> ~ jgfpablo@gmail.com
+        </div>
+
+    </footer>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <script src="../assets/js/menu.js"></script>
+</body>
+
+</html>
