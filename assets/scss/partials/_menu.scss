@@ -106,3 +106,17 @@
         color: map-get($var, color);
     }
 }
+
+.swal2-success-ring {
+    border-color: map-get($var, color) !important;
+    color: map-get($var, color) !important;
+}
+
+.swal2-confirm {
+    background-color: map-get($var, color) !important;
+}
+.swal2-styled.swal2-confirm {
+    &:hover {
+        color: rgb(40, 40, 40);
+    }
+}

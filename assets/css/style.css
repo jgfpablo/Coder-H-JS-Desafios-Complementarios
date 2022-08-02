@@ -218,7 +218,7 @@ main .hero {
   color: #d3ad7f; }
 
 .text-color-modal-2 {
-  color: #d3ad7f; }
+  color: #af8b5f; }
 
 .btn-ok {
   background-color: #d3ad7f;
@@ -233,6 +233,16 @@ main .hero {
   .btn-cerrar:hover {
     background-color: #282828;
     color: #d3ad7f; }
+
+.swal2-success-ring {
+  border-color: #d3ad7f !important;
+  color: #d3ad7f !important; }
+
+.swal2-confirm {
+  background-color: #d3ad7f !important; }
+
+.swal2-styled.swal2-confirm:hover {
+  color: #282828; }
 
 .resenas {
   border: 1px solid white;
@@ -275,6 +285,14 @@ main .hero {
   .button:hover {
     transform: translateY(-1px);
     background-color: #af8b5f; }
+
+.span-text {
+  max-width: 235px;
+  width: 235px; }
+
+.leerMas {
+  color: #d3ad7f !important;
+  font-size: 2rem; }
 
 section article div iframe {
   min-height: 350px;

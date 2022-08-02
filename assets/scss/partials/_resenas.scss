@@ -48,3 +48,13 @@
         background-color: map-get($var, color-hover);
     }
 }
+
+.span-text {
+    max-width: 235px;
+    width: 235px;
+}
+
+.leerMas {
+    color: map-get($var, color) !important;
+    font-size: 2rem;
+}
