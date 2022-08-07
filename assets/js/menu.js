@@ -1,9 +1,13 @@
+let productos = [];
 let precioTotal = 0;
+
 class Producto {
-    constructor(nombre, precio, cantidad) {
+    constructor(nombre, precio, cantidad, categoria, imagen) {
         (this.nombre = nombre),
             (this.precio = precio),
-            (this.cantidad = cantidad);
+            (this.cantidad = cantidad),
+            (this.categoria = categoria),
+            (this.imagen = imagen);
     }
 
     Agregar() {
@@ -17,22 +21,31 @@ class Producto {
     }
 }
 
-let productos = [
-    new Producto("Macchiato Bombom", 240, 0),
-    new Producto("Cappuccino Moka", 240, 0),
-    new Producto("Cappuccino", 220, 0),
-    new Producto("Cappuccino Tentación", 250, 0),
-    new Producto("Cappuccino Bombóm", 230, 0),
-    new Producto("Macchiato", 220, 0),
-    new Producto("Té de Frambuesa", 150, 0),
-    new Producto("Té de Limon", 120, 0),
-    new Producto("Té de Naranja", 140, 0),
-    new Producto("Tostado Napolitano", 200, 0),
-    new Producto("Tostado Mixto", 250, 0),
-    new Producto("Tostado 4 Quesos", 230, 0),
-    new Producto("Flan", 170, 0),
-    new Producto("Pay de Queso", 250, 0),
-];
+if (localStorage.producto) {
+} else {
+    const datos = fetch(
+        "https://coffee-api-c08bc-default-rtdb.firebaseio.com/productos.json"
+    )
+        .then((respuesta) => respuesta.json())
+        .then((datosJson) => {
+            for (const datos of datosJson) {
+                productos.push(
+                    new Producto(
+                        datos.nombre,
+                        datos.precio,
+                        datos.cantidad,
+                        datos.categoria,
+                        datos.imagen
+                    )
+                );
+            }
+            CargarHtml();
+            CargarLocalStorage();
+        })
+        .catch((e) => {
+            console.error("algo muy malo ocurrio ");
+        });
+}
 
 CargarLocalStorage = () => {
     if (localStorage.productos) {
@@ -43,7 +56,8 @@ CargarLocalStorage = () => {
                 new Producto(
                     iterator.nombre,
                     iterator.precio,
-                    iterator.cantidad
+                    iterator.cantidad,
+                    iterator.categoria
                 )
             );
         }
@@ -141,4 +155,218 @@ RealizarPedido = () => {
     }
 };
 
-CargarLocalStorage();
+CargarHtml = () => {
+    let bebidasCalientes = document.getElementById("Bebidas_Calientes");
+    let bebidasFrias = document.getElementById("Bebidas_Frias");
+    let salados = document.getElementById("Salados");
+    let postres = document.getElementById("Postres");
+
+    let arrayBebidasCalientes = productos.filter(
+        (producto) => producto.categoria === "Bebidas Calientes"
+    );
+    let arrayBebidasFrias = productos.filter(
+        (producto) => producto.categoria === "Bebidas Frias"
+    );
+    let arraySalados = productos.filter(
+        (producto) => producto.categoria === "Salados"
+    );
+    let arrayPostres = productos.filter(
+        (producto) => producto.categoria === "Postres"
+    );
+
+    for (const iterator of arrayBebidasCalientes) {
+        article = document.createElement("article");
+        article.className = "menu col-12 col-md-4 col-lg-3 bg bg-img m-4";
+        divPadre = document.createElement("div");
+        bebidasCalientes.appendChild(article).appendChild(divPadre);
+
+        div = document.createElement("div");
+        div.className = "d-flex justify-content-center";
+        img = document.createElement("img");
+        img.setAttribute("src", iterator.imagen);
+        img.className = "img-menu w-100 h-100";
+        divPadre.appendChild(div).appendChild(img);
+
+        div = document.createElement("div");
+        div.className = "d-flex flex-column align-items-center";
+        p = document.createElement("p");
+        p.className = "menu-text-title";
+        p.textContent = iterator.nombre;
+        divPadre.appendChild(div).appendChild(p);
+
+        divHijo = document.createElement("div");
+        divHijo.className = "agregar-quitar-menu";
+
+        buttonRestar = document.createElement("button");
+        buttonRestar.className = "btn-agregar-quitar btn-quitar";
+        buttonRestar.setAttribute("onclick", `${iterator.nombre}`);
+        buttonRestar.textContent = "-";
+        divPadre.appendChild(divHijo).appendChild(buttonRestar);
+
+        input = document.createElement("input");
+        input.className = "input-number";
+        input.setAttribute("disabled", "»disabled»");
+        input.setAttribute("value", "0");
+        input.setAttribute("type", "number");
+        input.setAttribute("id", iterator.nombre);
+        divHijo.appendChild(input);
+
+        buttonSumar = document.createElement("button");
+        buttonSumar.className = "btn-agregar-quitar";
+        buttonSumar.setAttribute("onclick", `Sumar("${iterator.nombre}")`);
+        buttonSumar.textContent = "+";
+        divHijo.appendChild(buttonSumar);
+
+        p = document.createElement("p");
+        p.className = "menu-text-title";
+        p.textContent = "$" + iterator.precio;
+        divPadre.appendChild(p);
+    }
+
+    for (const iterator of arrayBebidasFrias) {
+        article = document.createElement("article");
+        article.className = "menu col-12 col-md-4 col-lg-3 bg bg-img m-4";
+        divPadre = document.createElement("div");
+        bebidasFrias.appendChild(article).appendChild(divPadre);
+
+        div = document.createElement("div");
+        div.className = "d-flex justify-content-center";
+        img = document.createElement("img");
+        img.setAttribute("src", iterator.imagen);
+        img.className = "img-menu w-100 h-100";
+        divPadre.appendChild(div).appendChild(img);
+
+        div = document.createElement("div");
+        div.className = "d-flex flex-column align-items-center";
+        p = document.createElement("p");
+        p.className = "menu-text-title";
+        p.textContent = iterator.nombre;
+        divPadre.appendChild(div).appendChild(p);
+
+        divHijo = document.createElement("div");
+        divHijo.className = "agregar-quitar-menu";
+
+        buttonRestar = document.createElement("button");
+        buttonRestar.className = "btn-agregar-quitar btn-quitar";
+        buttonRestar.setAttribute("onclick", `${iterator.nombre}`);
+        buttonRestar.textContent = "-";
+        divPadre.appendChild(divHijo).appendChild(buttonRestar);
+
+        input = document.createElement("input");
+        input.className = "input-number";
+        input.setAttribute("disabled", "»disabled»");
+        input.setAttribute("value", "0");
+        input.setAttribute("type", "number");
+        input.setAttribute("id", iterator.nombre);
+        divHijo.appendChild(input);
+
+        buttonSumar = document.createElement("button");
+        buttonSumar.className = "btn-agregar-quitar";
+        buttonSumar.setAttribute("onclick", `Sumar("${iterator.nombre}")`);
+        buttonSumar.textContent = "+";
+        divHijo.appendChild(buttonSumar);
+
+        p = document.createElement("p");
+        p.className = "menu-text-title";
+        p.textContent = "$" + iterator.precio;
+        divPadre.appendChild(p);
+    }
+
+    for (const iterator of arraySalados) {
+        article = document.createElement("article");
+        article.className = "menu col-12 col-md-4 col-lg-3 bg bg-img m-4";
+        divPadre = document.createElement("div");
+        salados.appendChild(article).appendChild(divPadre);
+
+        div = document.createElement("div");
+        div.className = "d-flex justify-content-center";
+        img = document.createElement("img");
+        img.setAttribute("src", iterator.imagen);
+        img.className = "img-menu w-100 h-100";
+        divPadre.appendChild(div).appendChild(img);
+
+        div = document.createElement("div");
+        div.className = "d-flex flex-column align-items-center";
+        p = document.createElement("p");
+        p.className = "menu-text-title";
+        p.textContent = iterator.nombre;
+        divPadre.appendChild(div).appendChild(p);
+
+        divHijo = document.createElement("div");
+        divHijo.className = "agregar-quitar-menu";
+
+        buttonRestar = document.createElement("button");
+        buttonRestar.className = "btn-agregar-quitar btn-quitar";
+        buttonRestar.setAttribute("onclick", `${iterator.nombre}`);
+        buttonRestar.textContent = "-";
+        divPadre.appendChild(divHijo).appendChild(buttonRestar);
+
+        input = document.createElement("input");
+        input.className = "input-number";
+        input.setAttribute("disabled", "»disabled»");
+        input.setAttribute("value", "0");
+        input.setAttribute("type", "number");
+        input.setAttribute("id", iterator.nombre);
+        divHijo.appendChild(input);
+
+        buttonSumar = document.createElement("button");
+        buttonSumar.className = "btn-agregar-quitar";
+        buttonSumar.setAttribute("onclick", `Sumar("${iterator.nombre}")`);
+        buttonSumar.textContent = "+";
+        divHijo.appendChild(buttonSumar);
+
+        p = document.createElement("p");
+        p.className = "menu-text-title";
+        p.textContent = "$" + iterator.precio;
+        divPadre.appendChild(p);
+    }
+
+    for (const iterator of arrayPostres) {
+        article = document.createElement("article");
+        article.className = "menu col-12 col-md-4 col-lg-3 bg bg-img m-4";
+        divPadre = document.createElement("div");
+        postres.appendChild(article).appendChild(divPadre);
+
+        div = document.createElement("div");
+        div.className = "d-flex justify-content-center";
+        img = document.createElement("img");
+        img.setAttribute("src", iterator.imagen);
+        img.className = "img-menu w-100 h-100";
+        divPadre.appendChild(div).appendChild(img);
+
+        div = document.createElement("div");
+        div.className = "d-flex flex-column align-items-center";
+        p = document.createElement("p");
+        p.className = "menu-text-title";
+        p.textContent = iterator.nombre;
+        divPadre.appendChild(div).appendChild(p);
+
+        divHijo = document.createElement("div");
+        divHijo.className = "agregar-quitar-menu";
+
+        buttonRestar = document.createElement("button");
+        buttonRestar.className = "btn-agregar-quitar btn-quitar";
+        buttonRestar.setAttribute("onclick", `${iterator.nombre}`);
+        buttonRestar.textContent = "-";
+        divPadre.appendChild(divHijo).appendChild(buttonRestar);
+
+        input = document.createElement("input");
+        input.className = "input-number";
+        input.setAttribute("disabled", "»disabled»");
+        input.setAttribute("value", "0");
+        input.setAttribute("type", "number");
+        input.setAttribute("id", iterator.nombre);
+        divHijo.appendChild(input);
+
+        buttonSumar = document.createElement("button");
+        buttonSumar.className = "btn-agregar-quitar";
+        buttonSumar.setAttribute("onclick", `Sumar("${iterator.nombre}")`);
+        buttonSumar.textContent = "+";
+        divHijo.appendChild(buttonSumar);
+
+        p = document.createElement("p");
+        p.className = "menu-text-title";
+        p.textContent = "$" + iterator.precio;
+        divPadre.appendChild(p);
+    }
+};
