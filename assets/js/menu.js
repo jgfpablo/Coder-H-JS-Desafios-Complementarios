@@ -23,6 +23,33 @@ class Producto {
 
 if (localStorage.producto) {
 } else {
+    // En caso de que la api no este funcionando descomentar fetch local y comentar el de la api
+
+    // ---------------------- FETCH LOCAL
+    // fetch("../assets/js/api.json")
+    //     .then((respuesta) => respuesta.json())
+    //     .then((datosJson) => {
+    //         console.log(datosJson);
+    //         for (const datos of datosJson) {
+    //             productos.push(
+    //                 new Producto(
+    //                     datos.nombre,
+    //                     datos.precio,
+    //                     datos.cantidad,
+    //                     datos.categoria,
+    //                     datos.imagen
+    //                 )
+    //             );
+    //         }
+    //         CargarHtml();
+    //         CargarLocalStorage();
+    //     })
+    //     .catch((e) => {
+    //         console.error("ocurrio un error en la peticion a la api");
+    //     });
+    // ---------------------- FIN FETCH LOCAL
+
+    // ------------------ FETCH API
     const datos = fetch(
         "https://coffee-api-c08bc-default-rtdb.firebaseio.com/productos.json"
     )
@@ -43,8 +70,9 @@ if (localStorage.producto) {
             CargarLocalStorage();
         })
         .catch((e) => {
-            console.error("algo muy malo ocurrio ");
+            console.error("problemas con api");
         });
+    // ------------------ FIN FETCH API
 }
 
 CargarLocalStorage = () => {
