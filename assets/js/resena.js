@@ -47,7 +47,6 @@ let comentariosAbstraidos = [
 ];
 
 carga = (index) => {
-    // desestructuración de OBJ
     let { nombre, comentario, image } = comentariosAbstraidos[index];
     article = document.createElement("article");
     article.className = "col-12 col-md-4 col-lg-3 bg m-4 resenas";
@@ -72,7 +71,6 @@ carga = (index) => {
     div = document.createElement("div");
     div.className = "d-flex justify-content-center mt-4";
     img = document.createElement("img");
-    console.log(comentariosAbstraidos);
     img.setAttribute("src", image);
     img.className = "border-100 imagen-resena";
     comentarios.appendChild(article).appendChild(div).appendChild(img);
@@ -164,7 +162,6 @@ verMenos = (id) => {
 if (localStorage.comentarios) {
     comentariosAbstraidos = [];
     coment = JSON.parse(localStorage.getItem("comentarios"));
-    console.log(coment);
     for (let index = 0; index < coment.length; index++) {
         comentariosAbstraidos[index] = new Comentarios(
             coment[index].nombre,
@@ -175,13 +172,8 @@ if (localStorage.comentarios) {
     }
 }
 
-//  ----------- OPERADOR LOGICO AND
-// if (localStorage.length == 0) {
-//     localStorage.setItem("comentarios", JSON.stringify(comentariosAbstraidos));
-// }
 localStorage.length == 0 &&
     localStorage.setItem("comentarios", JSON.stringify(comentariosAbstraidos));
-// ----------- FIN OPERADOR LOGICO AND
 
 localStorageFormulario = () => {
     setTimeout(() => {
@@ -191,13 +183,7 @@ localStorageFormulario = () => {
         correo = document.getElementById("correo").value;
         texto = document.getElementById("texto").value;
 
-        // ------------------- OPERADOR SPREAD
         formulario = [...formulario, nombre, correo, texto];
-        console.log("2" + formulario);
-        // formulario.push(nombre);
-        // formulario.push(correo);
-        // formulario.push(texto);
-        //---------------------  FIN OPERADOR SPREAD
 
         localStorage.setItem("formulario", JSON.stringify(formulario));
     }, 10);

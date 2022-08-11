@@ -21,73 +21,14 @@ class Producto {
     }
 }
 
-if (localStorage.producto) {
-} else {
-    // En caso de que la api no este funcionando descomentar fetch local y comentar el de la api
-
-    // ---------------------- FETCH LOCAL
-    // fetch("../assets/js/api.json")
-    //     .then((respuesta) => respuesta.json())
-    //     .then((datosJson) => {
-    //         console.log(datosJson);
-    //         for (const datos of datosJson) {
-    //             productos.push(
-    //                 new Producto(
-    //                     datos.nombre,
-    //                     datos.precio,
-    //                     datos.cantidad,
-    //                     datos.categoria,
-    //                     datos.imagen
-    //                 )
-    //             );
-    //         }
-    //         CargarHtml();
-    //         CargarLocalStorage();
-    //     })
-    //     .catch((e) => {
-    //         console.error("ocurrio un error en la peticion a la api");
-    //     });
-    // ---------------------- FIN FETCH LOCAL
-
-    // ------------------ FETCH API
-    const datos = fetch(
-        "https://coffee-api-c08bc-default-rtdb.firebaseio.com/productos.json"
-    )
-        .then((respuesta) => respuesta.json())
-        .then((datosJson) => {
-            for (const datos of datosJson) {
-                productos.push(
-                    new Producto(
-                        datos.nombre,
-                        datos.precio,
-                        datos.cantidad,
-                        datos.categoria,
-                        datos.imagen
-                    )
-                );
-            }
-            CargarHtml();
-            CargarLocalStorage();
-        })
-        .catch((e) => {
-            console.error("problemas con api");
-        });
-    // ------------------ FIN FETCH API
-}
-
 CargarLocalStorage = () => {
     if (localStorage.productos) {
         listaProductos = JSON.parse(localStorage.getItem("productos"));
         for (const iterator of listaProductos) {
-            document.getElementById(iterator.nombre).value = iterator.cantidad;
-            productos.push(
-                new Producto(
-                    iterator.nombre,
-                    iterator.precio,
-                    iterator.cantidad,
-                    iterator.categoria
-                )
-            );
+            if (document.getElementById(iterator.nombre)) {
+                document.getElementById(iterator.nombre).value =
+                    iterator.cantidad;
+            }
         }
     }
 };
@@ -170,7 +111,7 @@ RealizarPedido = () => {
             allowOutsideClick: false,
         }).then((result) => {
             if (result.isConfirmed) {
-                localStorage.clear();
+                localStorage.removeItem("productos");
                 window.location.reload();
             }
         });
@@ -180,6 +121,7 @@ RealizarPedido = () => {
             icon: "warning",
             allowOutsideClick: false,
         });
+        localStorage.removeItem("productos");
     }
 };
 
@@ -189,18 +131,38 @@ CargarHtml = () => {
     let salados = document.getElementById("Salados");
     let postres = document.getElementById("Postres");
 
-    let arrayBebidasCalientes = productos.filter(
-        (producto) => producto.categoria === "Bebidas Calientes"
-    );
-    let arrayBebidasFrias = productos.filter(
-        (producto) => producto.categoria === "Bebidas Frias"
-    );
-    let arraySalados = productos.filter(
-        (producto) => producto.categoria === "Salados"
-    );
-    let arrayPostres = productos.filter(
-        (producto) => producto.categoria === "Postres"
-    );
+    let arrayBebidasCalientes;
+    let arrayBebidasFrias;
+    let arraySalados;
+    let arrayPostres;
+
+    if (localStorage.producto) {
+        arrayBebidasCalientes = localStorage.productos.filter(
+            (producto) => producto.categoria === "Bebidas Calientes"
+        );
+        arrayBebidasFrias = localStorage.productos.filter(
+            (producto) => producto.categoria === "Bebidas Frias"
+        );
+        arraySalados = localStorage.productos.filter(
+            (producto) => producto.categoria === "Salados"
+        );
+        arrayPostres = localStorage.productos.filter(
+            (producto) => producto.categoria === "Postres"
+        );
+    } else {
+        arrayBebidasCalientes = productos.filter(
+            (producto) => producto.categoria === "Bebidas Calientes"
+        );
+        arrayBebidasFrias = productos.filter(
+            (producto) => producto.categoria === "Bebidas Frias"
+        );
+        arraySalados = productos.filter(
+            (producto) => producto.categoria === "Salados"
+        );
+        arrayPostres = productos.filter(
+            (producto) => producto.categoria === "Postres"
+        );
+    }
 
     for (const iterator of arrayBebidasCalientes) {
         article = document.createElement("article");
@@ -227,7 +189,7 @@ CargarHtml = () => {
 
         buttonRestar = document.createElement("button");
         buttonRestar.className = "btn-agregar-quitar btn-quitar";
-        buttonRestar.setAttribute("onclick", `${iterator.nombre}`);
+        buttonRestar.setAttribute("onclick", `Restar("${iterator.nombre}")`);
         buttonRestar.textContent = "-";
         divPadre.appendChild(divHijo).appendChild(buttonRestar);
 
@@ -276,7 +238,7 @@ CargarHtml = () => {
 
         buttonRestar = document.createElement("button");
         buttonRestar.className = "btn-agregar-quitar btn-quitar";
-        buttonRestar.setAttribute("onclick", `${iterator.nombre}`);
+        buttonRestar.setAttribute("onclick", `Restar("${iterator.nombre}")`);
         buttonRestar.textContent = "-";
         divPadre.appendChild(divHijo).appendChild(buttonRestar);
 
@@ -325,7 +287,7 @@ CargarHtml = () => {
 
         buttonRestar = document.createElement("button");
         buttonRestar.className = "btn-agregar-quitar btn-quitar";
-        buttonRestar.setAttribute("onclick", `${iterator.nombre}`);
+        buttonRestar.setAttribute("onclick", `Restar("${iterator.nombre}")`);
         buttonRestar.textContent = "-";
         divPadre.appendChild(divHijo).appendChild(buttonRestar);
 
@@ -374,7 +336,7 @@ CargarHtml = () => {
 
         buttonRestar = document.createElement("button");
         buttonRestar.className = "btn-agregar-quitar btn-quitar";
-        buttonRestar.setAttribute("onclick", `${iterator.nombre}`);
+        buttonRestar.setAttribute("onclick", `Restar("${iterator.nombre}")`);
         buttonRestar.textContent = "-";
         divPadre.appendChild(divHijo).appendChild(buttonRestar);
 
@@ -398,3 +360,72 @@ CargarHtml = () => {
         divPadre.appendChild(p);
     }
 };
+
+if (localStorage.productos && productos != []) {
+    productosLista = JSON.parse(localStorage.getItem("productos"));
+
+    for (datos of productosLista) {
+        productos.push(
+            new Producto(
+                datos.nombre,
+                datos.precio,
+                datos.cantidad,
+                datos.categoria,
+                datos.imagen
+            )
+        );
+    }
+
+    CargarHtml();
+    CargarLocalStorage();
+} else {
+    // En caso de que la api no este funcionando descomentar fetch local y comentar el de la api
+
+    // ---------------------- FETCH LOCAL
+    // fetch("../assets/js/api.json")
+    //     .then((respuesta) => respuesta.json())
+    //     .then((datosJson) => {
+    //         for (const datos of datosJson) {
+    //             productos.push(
+    //                 new Producto(
+    //                     datos.nombre,
+    //                     datos.precio,
+    //                     datos.cantidad,
+    //                     datos.categoria,
+    //                     datos.imagen
+    //                 )
+    //             );
+    //         }
+    //         CargarHtml();
+    //         CargarLocalStorage();
+    //     })
+    //     .catch((e) => {
+    //         console.error("ocurrio un error en la peticion a la api");
+    //     });
+    // ---------------------- FIN FETCH LOCAL
+
+    // ------------------ FETCH API
+    const datos = fetch(
+        "https://coffee-api-c08bc-default-rtdb.firebaseio.com/productos.json"
+    )
+        .then((respuesta) => respuesta.json())
+        .then((datosJson) => {
+            for (const datos of datosJson) {
+                productos.push(
+                    new Producto(
+                        datos.nombre,
+                        datos.precio,
+                        datos.cantidad,
+                        datos.categoria,
+                        datos.imagen
+                    )
+                );
+            }
+            CargarHtml();
+            CargarLocalStorage();
+        })
+        .catch((e) => {
+            console.error("problemas con api");
+        });
+    // ------------------ FIN FETCH API
+}
